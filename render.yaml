@@ -1,9 +1,8 @@
-# render.yaml - Render blueprint for a static site
 services:
-  - type: static
-    name: manoj-static-site     # change this to a unique name (lowercase, dashes OK)
-    env: static
+  - type: web
+    name: manoj-python-site
+    env: python
     plan: free
-    branch: main                # change if your branch is different
-    buildCommand: ""            # no build step for plain HTML
-    staticPublishPath: "."      # publish files from repo root (index.html lives here)
+    branch: main
+    buildCommand: "pip install -r requirements.txt"
+    startCommand: "python app.py"
